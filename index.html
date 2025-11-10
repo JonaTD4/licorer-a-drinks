@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furci Drinks - Licores y Combos Premium</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <span class="logo-icon">🍸</span>
+                    <h1>Furci Drinks</h1>
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="#home">Inicio</a></li>
+                        <li><a href="#products">Productos</a></li>
+                        <li><a href="#combos">Combos</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="nav-actions">
+                    <div class="user-icon" id="userIcon">👤</div>
+                    <div class="cart-icon" id="cartBtn">
+                        🛒
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Los mejores Licores y Combos a un mensaje de distancia 🍸</h2>
+            <p>Disfruta de una experiencia premium con entrega rápida en Sucre</p>
+            
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Nuestras Categorías</h2>
+            <div class="category-cards">
+                <div class="category-card" data-category="singani">
+                    <div class="category-img" style="background-image: url('https://www.boliviacultural.com.br/wp-content/uploads/2024/12/Capa-real.jpg');"></div>
+                    <div class="category-content">
+                        <h3>Singanis</h3>
+                        <p>Descubre nuestra selección de Singanis</p>
+                    </div>
+                </div>
+                <div class="category-card" data-category="whiskys">
+                    <div class="category-img" style="background-image: url('https://tse4.mm.bing.net/th/id/OIP.VjPL4y2WHqMx2AkiQT7_7wHaLH?rs=1&pid=ImgDetMain&o=7&rm=3');"></div>
+                    <div class="category-content">
+                        <h3>Whiskys</h3>
+                        <p>Desde blends suaves hasta single malts excepcionales</p>
+                    </div>
+                </div>
+                <div class="category-card" data-category="vodkas">
+                    <div class="category-img" style="background-image: url('https://th.bing.com/th/id/R.2589c1b1c1b6ebd2ddfab903da7a38af?rik=Q4P%2fPBxCgNX4JA&riu=http%3a%2f%2ftheboogaloobali.com%2fwp-content%2fuploads%2fabsolut.jpg&ehk=EBcgfEc%2fSRaqHpKML0Wa5tRKjOG5MD54d2WoUEsTuCU%3d&risl=&pid=ImgRaw&r=0');"></div>
+                    <div class="category-content">
+                        <h3>Vodkas</h3>
+                        <p>La pureza y suavidad en cada botella</p>
+                    </div>
+                </div>
+                <div class="category-card" data-category="combos">
+                    <div class="category-img" style="background-image: url('https://tse3.mm.bing.net/th/id/OIP.juPiCCDT9eI0nowWs8K1bwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3');"></div>
+                    <div class="category-content">
+                        <h3>Combos Especiales</h3>
+                        <p>Todo lo que necesitas para disfrutar con amigos</p>
+                    </div>
+                </div>
+                <div class="category-card" data-category="ron">
+                <div class="category-img" style="background-image: url('https://th.bing.com/th/id/R.de6dbcf7bb48641006b74bb2b7f53a45?rik=A2ZC8OIl6%2fxIpQ&riu=http%3a%2f%2fwww.cellarsupplies.co.uk%2fwp-content%2fuploads%2f2019%2f03%2fHavana-Club.jpg&ehk=rkqZ4WNbvdolEMO9cXPIh3ZX9oAhsnlxDmGIsaFUK3c%3d&risl=&pid=ImgRaw&r=0');"></div>
+                <div class="category-content">
+                    <h3>Rones</h3>
+                    <p>Rones nacionales e internacionales.</p>
+                </div>
+            </div>
+
+            <div class="category-card" data-category="vinos">
+                <div class="category-img" style="background-image: url('https://1.bp.blogspot.com/-WCCbHfogMqA/VBen9y3GZ0I/AAAAAAAAaYw/lah0mPFOjz4/s1600/10374888_722424424490646_3229985580052141237_n.png');"></div>
+                <div class="category-content">
+                    <h3>Vinos</h3>
+                    <p>Vinos tintos, blancos y espumantes.</p>
+                </div>
+            </div>
+
+            <div class="category-card" data-category="cervezas">
+                <div class="category-img" style="background-image: url('https://www.bolivianita.de/cdn/shop/files/pacena_02_1000x750_922c6d3a-793f-42fe-a318-21305183f770_1445x.jpg?v=1671985543');"></div>
+                <div class="category-content">
+                    <h3>Cervezas</h3>
+                    <p>Artesanales y comerciales.</p>
+                </div>
+            </div>
+
+            <div class="category-card" data-category="tequilas">
+                <div class="category-img" style="background-image: url('https://i.pinimg.com/736x/5e/e7/64/5ee764763a176fd9c3d74f7b24653a84.jpg');"></div>
+                <div class="category-content">
+                    <h3>Tequilas</h3>
+                    <p>Tequilas blancos, reposados y añejos.</p>
+                </div>
+            </div>
+
+            <div class="category-card" data-category="gaseosas">
+                <div class="category-img" style="background-image: url('https://w7.pngwing.com/pngs/706/63/png-transparent-sprite-zero-fizzy-drinks-fanta-coca-cola-sprite-food-plastic-bottle-carbonated-water-thumbnail.png');"></div>
+                <div class="category-content">
+                    <h3>Gaseosas</h3>
+                    <p>Refrescos 2L, 1.5L y latas.</p>
+                </div>
+            </div>
+
+            <div class="category-card" data-category="bebidas_preparadas">
+                <div class="category-img" style="background-image: url('https://tse3.mm.bing.net/th/id/OIP.iFS-wNrZzw_W7qVjZu7RAwHaJ4?rs=1&pid=ImgDetMain&o=7&rm=3');"></div>
+                <div class="category-content">
+                    <h3>Bebidas Preparadas</h3>
+                    <p>Listas para beber: preparados y energizantes.</p>
+                </div>
+            </div>
+
+            <div class="category-card" data-category="cigarrillos">
+                <div class="category-img" style="background-image: url('https://tse4.mm.bing.net/th/id/OIP.ywt4fI0RrlaBHvlyuq24KwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3');"></div>
+                <div class="category-content">
+                    <h3>Cigarrillos</h3>
+                    <p>Marcas comerciales (venta responsable).</p>
+                </div>
+            </div>
+
+            <div class="category-card" data-category="snacks">
+                <div class="category-img" style="background-image: url('https://i5.walmartimages.com/asr/f21d2376-bced-442a-bd36-edd64e31fca1_1.b878e5c8eca12c495d96624d68f916bd.jpeg');"></div>
+                <div class="category-content">
+                    <h3>Snacks</h3>
+                    <p>Papas, nachos, golosinas y más.</p>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Nuestros Productos</h2>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="singani">Singanis</button>
+                    <button class="filter-btn" data-filter="whiskys">Whiskys</button>
+                    <button class="filter-btn" data-filter="vodkas">Vodkas</button>
+                    <button class="filter-btn" data-filter="combos">Combos</button>
+                    <button class="filter-btn" data-filter="ron">Ron</button>
+                    <button class="filter-btn" data-filter="vinos">Vinos</button>
+                    <button class="filter-btn" data-filter="cervezas">Cervezas</button>
+                    <button class="filter-btn" data-filter="tequilas">Tequilas</button>
+                    <button class="filter-btn" data-filter="gaseosas">Gaseosas</button>
+                    <button class="filter-btn" data-filter="bebidas_preparadas">Bebidas Preparadas</button>
+                    <button class="filter-btn" data-filter="cigarrillos">Cigarrillos</button>
+                    <button class="filter-btn" data-filter="snacks">Snacks</button>
+                </div>
+
+                <input type="text" class="search-box" placeholder="Buscar productos..." id="searchBox">
+            </div>
+            
+            <div class="product-grid" id="productGrid">
+                <!-- Los productos se cargarán dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Combos Section -->
+    <section class="combos" id="combos">
+        <div class="container">
+            <h2 class="section-title">Combos Destacados</h2>
+            
+            <div class="combo-highlight">
+                <div class="combo-image" style="background-image: url('https://tse2.mm.bing.net/th/id/OIP.WM42n1MjhZxwGUCUaH0VMgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3');"></div>
+                <div class="combo-details">
+                    <h3 class="combo-title">Combo singani Casa Real Negro</h3>
+                    <p class="combo-description">Disfruta de una noche especial con nuestro Singani Casa Real Negro, incluye soda Sprit 2lts Perfecto para compartir con amigos.</p>
+                    <div class="combo-price">
+                        <span class="current-price">Bs 180</span>
+                        <span class="old-price">Bs 210</span>
+                        <span class="discount">-17%</span>
+                    </div>
+                    <button class="btn btn-primary add-to-cart-combo" data-id="1001">
+                        <span>🛒</span> Añadir al carrito
+                    </button>
+                </div>
+            </div>
+            
+            <div class="product-grid">
+                <!-- Combos se cargarán dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="close-cart" id="closeCartBtn">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Los elementos del carrito se cargarán dinámicamente -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">Bs 0.00</span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-primary" id="checkoutBtn">
+                    Proceder al Pago
+                </button>
+                <button class="btn btn-secondary" id="clearCartBtn">
+                    Vaciar Carrito
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-btn" id="whatsappFloatBtn">
+        <span>💬</span>
+    </div>
+
+    <!-- Admin Panel -->
+    <section class="admin-panel" id="adminPanel">
+        <div class="container">
+            <h2 class="section-title">Panel de Administración</h2>
+            
+            <div class="admin-tabs">
+                <div class="admin-tab active" data-tab="products">Gestión de Productos</div>
+                <div class="admin-tab" data-tab="combos">Gestión de Combos</div>
+                <div class="admin-tab" data-tab="orders">Pedidos y Reservas</div>
+                <div class="admin-tab" data-tab="users">Gestión de Usuarios</div>
+            </div>
+            
+            <div class="admin-content">
+                <div class="admin-section active" id="products-section">
+                    <h3>Añadir Nuevo Producto</h3>
+                    <form class="product-form" id="productForm">
+                        <div class="form-group">
+                            <label for="productName">Nombre del Producto</label>
+                            <input type="text" id="productName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productCategory">Categoría</label>
+                            <select id="productCategory" class="form-control" required>
+                                <option value="singani">Singanis</option>
+                                    <option value="whiskys">Whiskys</option>
+                                    <option value="vodkas">Vodkas</option>
+                                    <option value="combos">Combos</option>
+                                    <option value="ron">Rones</option>
+                                    <option value="vinos">Vinos</option>
+                                    <option value="cervezas">Cervezas</option>
+                                    <option value="tequilas">Tequilas</option>
+                                    <option value="gaseosas">Gaseosas</option>
+                                    <option value="bebidas_preparadas">Bebidas Preparadas</option>
+                                    <option value="cigarrillos">Cigarrillos</option>
+                                    <option value="snacks">Snacks</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="productPrice">Precio (Bs)</label>
+                            <input type="number" id="productPrice" class="form-control" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productStock">Stock</label>
+                            <input type="number" id="productStock" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productDescription">Descripción</label>
+                            <textarea id="productDescription" class="form-control" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="productImage">URL de la Imagen</label>
+                            <input type="text" id="productImage" class="form-control">
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="cancelProductBtn">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar Producto</button>
+                        </div>
+                    </form>
+                    
+                    <h3 style="margin-top: 40px;">Lista de Productos</h3>
+                    <div id="adminProductList">
+                        <!-- Los productos se cargarán dinámicamente -->
+                    </div>
+                </div>
+                
+                <div class="admin-section" id="combos-section">
+                    <h3>Gestión de Combos</h3>
+                    <!-- Contenido para gestión de combos -->
+                </div>
+                
+                <div class="admin-section" id="orders-section">
+                    <h3>Pedidos y Reservas</h3>
+                    <div id="adminOrdersList"></div>
+                    <!-- Contenido para pedidos y reservas -->
+                </div>
+                
+                <div class="admin-section" id="users-section">
+                    <h3>Gestión de Usuarios</h3>
+                    <!-- Contenido para gestión de usuarios -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Form -->
+    <div class="login-form" id="loginForm">
+        <h2>Iniciar Sesión</h2>
+        <form id="userLoginForm">
+            <div class="form-group">
+                <label for="userEmail">Correo Electrónico</label>
+                <input type="email" id="userEmail" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="userPassword">Contraseña</label>
+                <input type="password" id="userPassword" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 15px;">Iniciar Sesión</button>
+            <div style="text-align: center;">
+                <a href="#" id="adminLoginLink">Acceso Administrador</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Admin Login Form -->
+    <div class="login-form" id="adminLoginForm" style="display: none;">
+        <h2>Iniciar Sesión - Admin</h2>
+        <form id="adminLoginForm">
+            <div class="form-group">
+                <label for="adminEmail">Correo Electrónico</label>
+                <input type="email" id="adminEmail" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="adminPassword">Contraseña</label>
+                <input type="password" id="adminPassword" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 15px;">Iniciar Sesión</button>
+            <div style="text-align: center;">
+                <a href="#" id="userLoginLink">Acceso Usuario</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="productDetailModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeProductModal">×</button>
+            <div class="product-detail" id="productDetailContent">
+                <!-- Contenido del producto se cargará dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closePaymentModal">×</button>
+            <h3 class="modal-title">Selecciona Método de Pago</h3>
+            <div class="payment-options">
+                <div class="payment-option" data-method="cash">
+                    <span>💵</span>
+                    <div>
+                        <h4>Pago en Efectivo</h4>
+                        <p>Paga al recibir tu pedido</p>
+                    </div>
+                </div>
+                <div class="payment-option" data-method="reservation">
+                    <span>🔖</span>
+                    <div>
+                        <h4>Reserva</h4>
+                        <p>Reserva el producto sin pago inmediato</p>
+                    </div>
+                </div>
+                <div class="payment-option" data-method="qr">
+                    <span>📱</span>
+                    <div>
+                        <h4>Pago con QR</h4>
+                        <p>Escanea el código para pagar</p>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" id="confirmPaymentBtn" style="width: 100%; margin-top: 20px;">
+                Confirmar Método
+            </button>
+        </div>
+    </div>
+
+    <!-- QR Modal -->
+    <div class="modal" id="qrModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeQrModal">×</button>
+            <h3 class="modal-title">Pago con QR</h3>
+            <p>Escanea este código con tu aplicación de pagos</p>
+            <div class="qr-image">
+            <img src="Img/QrPagos.jpg" alt="Código QR para pago" id="qrImage">
+        </div>
+            <p>Total a pagar: <strong id="qrTotal">Bs 0.00</strong></p>
+            <button class="btn btn-primary" id="confirmQrPaymentBtn" style="width: 100%; margin-top: 20px;">
+                Confirmar Pago
+            </button>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeConfirmationModal">×</button>
+            <h3 class="modal-title" id="confirmationTitle">¡Pedido Confirmado!</h3>
+            <p id="confirmationMessage">Tu pedido ha sido procesado correctamente.</p>
+            <button class="btn btn-primary" id="closeConfirmationBtn" style="width: 100%; margin-top: 20px;">
+                Aceptar
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Furci Drinks</h3>
+                    <p>Los mejores Licores y Combos a un mensaje de distancia. Entrega rápida en Sucre.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#home">Inicio</a></li>
+                        <li><a href="#products">Productos</a></li>
+                        <li><a href="#combos">Combos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li>📞 +591 79302129</li>
+                        <li>📍 "Av. De las Americas #301
+                    </ul>
+                    
+                    <a href="https://wa.me/59179302129?text=Hola%20quiero%20hacer%20un%20pedido%20🍾"
+                        target="_blank"
+                        class="whatsapp-link">
+                        <li>💬 Escríbenos por WhatsApp</li>
+                    </a>
+                    <a href="https://maps.app.goo.gl/ZJJGBVyH52Wo7Zq5A"
+                        target="_blank"
+                        class="map-container">
+                        <li>🏠Nuestra ubicación</li>
+                    </a>
+                    
+                </div>
+                <div class="footer-section">
+                    <h3>Métodos de Pago</h3>
+                    <ul>
+                        <li>💵 Efectivo al recibir</li>
+                        <li>📱 Transferencia bancaria</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2022 Drinks Furci. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
