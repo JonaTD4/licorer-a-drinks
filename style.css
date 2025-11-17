@@ -720,6 +720,57 @@
             font-weight: 700;
         }
         
+        /* --- Panel de login/usuario anclado al icono --- */
+        .user-menu {
+        position: absolute;
+        right: 20px; /* ajusta según el padding de tu header */
+        top: 65px;    /* debajo del header */
+        width: 320px;
+        max-width: calc(100vw - 40px);
+        background-color: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+        padding: 18px;
+        z-index: 2000;
+        }
+
+        /* Ajustes para reutilizar tu .login-form dentro del dropdown */
+        .user-menu .login-form {
+        margin: 0;
+        max-width: none;
+        background: transparent;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+        }
+
+        /* Botones pequeños dentro del menú */
+        .user-menu .btn {
+        width: 100%;
+        margin-top: 8px;
+        }
+
+        /* Mini menú cuando hay usuario logueado */
+        .user-menu .user-greeting {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+        }
+        .user-menu .user-greeting .avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-weight:700;
+        background: linear-gradient(135deg, rgba(212,175,55,0.12), rgba(212,175,55,0.05));
+        border:1px solid rgba(212,175,55,0.08);
+        color:var(--accent);
+        }
+
         /* Footer */
         footer {
             background-color: var(--secondary);

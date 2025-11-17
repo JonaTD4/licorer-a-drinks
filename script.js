@@ -191,6 +191,7 @@ if (savedProducts) {
         const searchBox = document.getElementById('searchBox');
         const adminPanel = document.getElementById('adminPanel');
         const userIcon = document.getElementById('userIcon');
+        const userMenu = document.getElementById('userMenu'); 
         const loginForm = document.getElementById('loginForm');
         const adminLoginForm = document.getElementById('adminLoginForm');
         const userLoginForm = document.getElementById('userLoginForm');
@@ -381,6 +382,139 @@ function addOrderToHistory(order) {
                 }
             });
 
+
+// Renderiza el contenido del userMenu según estado (logueado/no logueado)
+function renderUserMenu() {
+    if (!userMenu) return;
+
+    if (currentUser) {
+        // menú para usuario conectado
+        const initial = (currentUser.name && currentUser.name[0]) ? currentUser.name[0].toUpperCase() : 'U';
+        userMenu.innerHTML = `
+            <div class="user-greeting">
+                <div class="avatar">${initial}</div>
+                <div>
+                    <div style="font-weight:700;">Hola, ${currentUser.name}</div>
+                    <div style="font-size:0.85rem; color:var(--text-secondary)">${currentUser.email}</div>
+                </div>
+            </div>
+            <button id="miCuentaBtn" class="btn btn-secondary">Mi cuenta</button>
+            <button id="logoutBtn" class="btn btn-primary">Cerrar sesión</button>
+        `;
+        // listeners
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            logout();
+            hideUserMenu();
+        });
+        document.getElementById('miCuentaBtn').addEventListener('click', function() {
+            // Aquí puedes dirigir al usuario a su perfil o mostrar más info
+            showNotification('Función "Mi cuenta" (pendiente de implementar)', 'info');
+        });
+    } else {
+        // mostrar formulario de login dentro del panel (reutiliza markup)
+        userMenu.innerHTML = `
+            <div class="login-form" style="background:transparent;padding:0;">
+                <h3 style="margin-bottom:12px;">Iniciar Sesión</h3>
+                <form id="userLoginFormDropdown">
+                    <div class="form-group">
+                        <label for="userEmailDrop">Correo Electrónico</label>
+                        <input type="email" id="userEmailDrop" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userPasswordDrop">Contraseña</label>
+                        <input type="password" id="userPasswordDrop" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    <div style="text-align:center; margin-top:8px;">
+                        <a href="#" id="adminLoginLinkDropdown">Acceso Administrador</a>
+                    </div>
+                </form>
+            </div>
+        `;
+
+        // submit handler para el formulario en el dropdown
+        const form = document.getElementById('userLoginFormDropdown');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('userEmailDrop').value.trim();
+            const password = document.getElementById('userPasswordDrop').value.trim();
+
+            if (email && password) {
+                // Simulación de login. Si tienes API, aquí llamarías.
+                currentUser = { name: email.split('@')[0], email: email };
+                saveToLocalStorage(); // ya definida en tu script
+                renderUserState();     // actualiza icono/estado
+                showNotification(`Bienvenido ${currentUser.name}`, 'success');
+                hideUserMenu();
+            } else {
+                showNotification('Por favor completa todos los campos', 'warning');
+            }
+        });
+
+        // link para admin (si quieres seguir con tu flujo actual)
+        document.getElementById('adminLoginLinkDropdown').addEventListener('click', function(ev) {
+            ev.preventDefault();
+            hideUserMenu();
+            // Mostrar tu formulario admin existente (si lo prefieres)
+            if (adminLoginForm) adminLoginForm.style.display = 'block';
+        });
+    }
+}
+
+// Muestra/oculta el panel
+function toggleUserMenu() {
+    if (!userMenu) return;
+    if (userMenu.style.display === 'block') {
+        hideUserMenu();
+    } else {
+        renderUserMenu();
+        userMenu.style.display = 'block';
+    }
+}
+function hideUserMenu() {
+    if (!userMenu) return;
+    userMenu.style.display = 'none';
+}
+
+// Logout: limpia user, guarda y notifica
+function logout() {
+    currentUser = null;
+    saveToLocalStorage();
+    renderUserState();
+    showNotification('Sesión cerrada', 'success');
+}
+
+// Actualiza la UI del icono (puedes mostrar iniciales o mantener emoji)
+function renderUserState() {
+    if (!userIcon) return;
+    if (currentUser) {
+        const initial = currentUser.name ? currentUser.name[0].toUpperCase() : 'U';
+        userIcon.textContent = initial; // reemplaza el emoji por la inicial
+        userIcon.style.fontWeight = '700';
+        userIcon.title = `Hola, ${currentUser.name}`;
+    } else {
+        userIcon.textContent = '👤';
+        userIcon.title = 'Iniciar sesión';
+    }
+}
+
+// Cambia el handler del icono para usar el dropdown (reemplaza el antiguo)
+userIcon.removeEventListener?.('click', null); // intento seguro (no da error si no existe)
+userIcon.addEventListener('click', function(e) {
+    e.stopPropagation(); // evita que el click se propague y cierre el panel
+    toggleUserMenu();
+});
+
+// Cerrar el menu si haces click fuera
+window.addEventListener('click', function(e) {
+    if (!userMenu) return;
+    const targetInside = userMenu.contains(e.target) || userIcon.contains(e.target);
+    if (!targetInside) hideUserMenu();
+});
+
+// Inicializa el estado del icono al cargar
+renderUserState();
+
             // Login de administrador
             adminLoginLink.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -411,7 +545,7 @@ function addOrderToHistory(order) {
                     window.scrollTo(0, document.getElementById('adminPanel').offsetTop);
                     showNotification('Sesión de administrador iniciada', 'success');
                 } else {
-                    showNotification('Credenciales incorrectas. Use: admin@gmail.com / admin123', 'warning');
+                    showNotification('Credenciales incorrectas.', 'warning');
                 }
             });
 
